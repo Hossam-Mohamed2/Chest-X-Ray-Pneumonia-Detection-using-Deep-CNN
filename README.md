@@ -1,3 +1,9 @@
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white)
+![TensorFlow/Keras](https://img.shields.io/badge/Framework-TensorFlow%20%2F%20Keras-orange?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Deep Learning](https://img.shields.io/badge/Domain-CNN%20%2F%20Computer%20Vision-green?style=for-the-badge)
+![Streamlit](https://img.shields.io/badge/Deployment-Streamlit-red?style=for-the-badge&logo=streamlit&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
+
 # Chest X-Ray Pneumonia Detection using Deep CNN
 
 ## Project Description
