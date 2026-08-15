@@ -1,35 +1,57 @@
+# 🫁 Chest X-Ray Pneumonia Detection using Deep CNN
+
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white)
 ![TensorFlow/Keras](https://img.shields.io/badge/Framework-TensorFlow%20%2F%20Keras-orange?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![Deep Learning](https://img.shields.io/badge/Domain-CNN%20%2F%20Computer%20Vision-green?style=for-the-badge)
 ![Streamlit](https://img.shields.io/badge/Deployment-Streamlit-red?style=for-the-badge&logo=streamlit&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
 
-# Chest X-Ray Pneumonia Detection using Deep CNN
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://chest-x-ray-pneumonia-detection-using-deep-cnn-lhtwu4mxwkvesby.streamlit.app/)
 
-## Project Description
+🚀 **Live Interactive Web Application:** [Click Here to Launch App](https://chest-x-ray-pneumonia-detection-using-deep-cnn-lhtwu4mxwkvesby.streamlit.app/)
+
+---
+
+## 📝 Project Description
 This project delivers an end-to-end Computer-Aided Diagnosis (CAD) system designed to automate multi-class pneumonia classification from chest X-ray radiography. Utilizing a custom Deep Convolutional Neural Network (CNN) built with TensorFlow/Keras, the model accurately classifies input images into three distinct clinical categories:
-- **NORMAL:** Healthy lung scans with no signs of infection.
-- **PNEUMONIA_BACTERIA:** Bacterial pneumonia requiring immediate antibiotic treatment.
-- **PNEUMONIA_VIRAL:** Viral pneumonia requiring supportive or antiviral care.
+
+* **NORMAL:** Healthy lung scans with no signs of infection.
+* **PNEUMONIA_BACTERIA:** Bacterial pneumonia requiring immediate antibiotic treatment.
+* **PNEUMONIA_VIRAL:** Viral pneumonia requiring supportive or antiviral care.
 
 The pipeline integrates advanced data preprocessing, real-time image augmentation, handling of class imbalance via balanced loss weighting (`class_weight='balanced'`), and early stopping regularization.
 
 ---
 
-## Dataset
-- **Source:** 'https://universe.roboflow.com/inatel/pneumonia-classification-imrcv'(Pneumonia).
-- **Structure:** Divided into training, validation, and test sets across 3 category subfolders:
-  ```text
-  dataset/
-  ├── train/
-  ├── valid/
-  └── test/
- Image Specifications: Grayscale single-channel images, normalized and resized to 256x256 pixels.
+## 📊 Dataset Overview
+* **Source:** [Pneumonia Classification Dataset on Roboflow](https://universe.roboflow.com/inatel/pneumonia-classification-imrcv)
+* **Structure:** Divided into training, validation, and test sets across 3 category subfolders:
 
+```text
+dataset/
+├── train/
+├── valid/
+└── test/
+```
+ Image Specifications: Grayscale single-channel images, normalized and resized to 256x256 pixels.
 
 ---
 
-## Requirements
+## ⚙️ Installation & Setup
+
+1. **Clone the repository:**
+git clone [GitHub](https://github.com/Hossam-Mohamed2/Chest-X-Ray-Pneumonia-Detection-using-Deep-CNN.git)
+cd Chest-X-Ray-Pneumonia-Detection-using-Deep-CNN
+
+2.  **Install requirements:**
+pip install -r requirements.txt
+
+3. **Run the Streamlit Web Application locally:**
+streamlit run app.py
+
+---
+
+## 📦Requirements
 The project relies on Python 3.8+ and the following core dependencies:
 * **tensorflow >= 2.10**
 * **numpy**
@@ -45,7 +67,7 @@ All specific versions are pinned inside the `requirements.txt` file.
 ---
 
 
-## Model Architecture
+## 🧠Model Architecture
 The network is a custom multi-layer Convolutional Neural Network (CNN) optimized for $256 \times 256 \times 1$ grayscale inputs:
 
 * **Convolutional Blocks:** Stacked Conv2D layers (3x3 filters) with ReLU activations to extract hierarchical spatial features.
@@ -57,7 +79,7 @@ The network is a custom multi-layer Convolutional Neural Network (CNN) optimized
 * **Classification Head:** Flatten layer transitioning into a fully connected Dense layer, ending in a 3-neuron output Dense layer with Softmax activation.
 
 ---
-## Results
+## 📈 Results & Evaluation
 The model was evaluated on an unseen held-out test dataset ($N = 618$ samples):
 
 - **Overall Test Accuracy:** 85.44%
@@ -77,7 +99,7 @@ The model was evaluated on an unseen held-out test dataset ($N = 618$ samples):
 
 ---
 
-## Prediction Examples
+## 💻 Prediction & Inference Example
 Inference scripts and sample visual outputs can be generated using the saved model (`saved_model/`).
 
 ### Example Code Snippet for Inference:
@@ -104,5 +126,5 @@ print(f"Predicted Class: {predicted_class}")
 ```
 ---
 
-## Author
+## 👤 Author
 * **Hossam Mohamed Refaat**
