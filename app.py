@@ -2,16 +2,23 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 from PIL import Image
+import os
+import gdown
 
-# 1. عنوان الصفحة والشكل العام
 st.set_page_config(page_title="Pneumonia Detection CAD System")
-st.title(" Chest X-Ray Pneumonia Detection")
+st.title("Chest X-Ray Pneumonia Detection")
 st.write("Upload a chest X-ray image to get real-time classification and confidence score.")
 
-# 2. تحميل الموديل المحفوظ
 @st.cache_resource
 def load_pneumonia_model():
-    return tf.keras.models.load_model('pneumonia_detection_model.keras')
+    model_path = 'pneumonia_detection_model.keras'
+    
+    if not os.path.exists(model_path):
+        file_id = '1LpHPQS-7G01fcxbSAiSZ_-js05ehq_Gu'
+        url = f'https://drive.google.com/uc?id={file_id}'
+        gdown.download(url, model_path, quiet=False, fuzzy=True)
+        
+    return tf.keras.models.load_model(model_path)
 
 model = load_pneumonia_model()
 class_names = ['NORMAL', 'PNEUMONIA_BACTERIA', 'PNEUMONIA_VIRAL']
@@ -26,7 +33,7 @@ if uploaded_file is not None:
     img = image.convert('L') # Grayscale
     img = img.resize((256, 256))
     img_array = np.array(img) / 255.0
-    img_array = np.expand_dims(img_array, axis=(0, -1)) #  (1, 256, 256, 1)
+    img_array = np.expand_dims(img_array, axis=(0, -1)) # (1, 256, 256, 1)
 
     if st.button('Diagnose Image'):
         with st.spinner('Analyzing X-Ray...'):
